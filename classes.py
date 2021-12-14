@@ -23,24 +23,27 @@ class Vehicle:
         self.nodes_visited: List[Node] = []
 
     def move_to_node(self, node: Node):
-        delta_y = self.current_pos[0] - node.location[0]
-        delta_x = self.current_pos[1] - node.location[1]
+        delta_y = self.current_pos[1] - node.location[1]
+        delta_x = self.current_pos[0] - node.location[0]
 
-        print(delta_x)
-        print(delta_y)
+        distance = math.sqrt((delta_x**2) + (delta_y**2))
 
-        distance = math.sqrt(delta_x**2 + delta_y**2)
-
-        self.current_pos = [node.location[1], node.location[0]]
+        self.current_pos = [node.location[0], node.location[1]]
         self.distance_traveled += distance
         self.total_revenue += node.value
         self.nodes_visited.append(node)
 
-        self.__toString__()
+        #self.__toString__()
 
     def __toString__(self):
-        print("VehicleID:", self.vehicle_ID, "\tCurrent Postion", self.current_pos,
-              "\tTotal Revenue:", self.total_revenue, "\tDistance Traveled:", self.distance_traveled,
-              "\tNodes Visited:", self.nodes_visited[0].node_id)
+        ids = []
+        for node in self.nodes_visited:
+            ids.append(node.node_id)
 
+        toString = f"VehicleID: {self.vehicle_ID} \tCurrent Postion: {self.current_pos} \tTotal Revenue: {self.total_revenue} \tDistance Traveled {self.distance_traveled} \tNodes Visited: {ids}"
+
+        return toString
+
+    def print_pos(self):
+        print("Vehicle ID:", self.vehicle_ID, "Vehicle Position:", self.current_pos)
 
