@@ -32,9 +32,7 @@ class MainWindow(QMainWindow):
 
         self.show()
 
-    @pyqtSlot()
     def to_standard(self):
-        self.statusBar().showMessage("Switched to window 1")
         self.cams = StandardWindow()
         self.cams.show()
         self.close()
