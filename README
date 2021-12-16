@@ -1,0 +1,33 @@
+Name: Nate Anderson
+Class: Comp 545 Analysis of Algorithms
+Instructor: Dr. Haleh Khojasteh
+Assignment: Algorithm Implementation Project
+
+To run:
+- Make sure dependencies from the dependencies.txt are installed
+    -I did not include a script to auto download dependencies, nor included the venv
+- run gui.py
+
+- Main screen is going to allow for 3 buttons, each one representing a different way that we have implemented
+  the Vehicle Routing Problem in practice
+
+  - First button is standard
+    - Finds the highest dollar per mile stop, and goes there first
+    - Finds shortest route to every stop listed for that vehicle
+    - Returns to the depot.
+    - This is iterated for two vehicles to show the process
+
+  - Second button is when the two vehicles are limited to 3 stops
+    - This is basically a greedy algorithm, it finds the highest value stops that are currently on
+      a specific vehicles route and chooses that stop to go to next.
+    - Distance is not a factor in this iteration
+
+  - Third button is pure shortest path, which is what we implemented in my internship.
+    - Each vehicle leaves the depot at ~the same time
+    - Finds the shortest distance node and moves through them until no nodes remain and then return to the depot
+
+- All nodes are considered connected for simplicities sake, but can implement roads and non-euclidean distances
+
+- All algorithms use a greedy approach for finding the shortest distance. In our practice in industry, we used
+a Neural Network to calculate the least possible distance and time using traffic pattern data and created the
+routes that way.
